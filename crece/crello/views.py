@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.forms import ModelForm
 from crello.models import Tablero
 
-def nave(request):
-    return render(request,'crello/nav.html',{})
+def index(request):
+    return render(request,'crello/index.html',{})
 
 class TableroForm(ModelForm):
     class Meta:
@@ -25,6 +25,6 @@ def crear_tab(request):
     form =  TableroForm(request.POST or None)
     if form.is_valid():
         form.save()
-        # return redirect('libreria: consultar_Cliente')
+        return redirect('crello: index.html')# tiene que dirigir a otro
     return render(request,templ,{'form':form})
 
