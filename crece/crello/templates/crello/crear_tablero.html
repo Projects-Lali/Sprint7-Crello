@@ -1,0 +1,9 @@
+{% extends 'crello/nav' %}
+{% block title %} CREAR TABLERO {% endblock %}
+{% block content %}
+      <form method="post">{% csrf_token %}
+
+        {{form.as_p}}
+        <input type="submit" value="enviar">
+      </form>
+{% endblock content %}
