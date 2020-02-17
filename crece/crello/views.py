@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.forms import ModelForm
-from crello.models import *
+from .models import *
 
 def index(request):
     return render(request,'crello/index.html',{})
@@ -29,7 +29,7 @@ def crear_tab(request):
     return render(request,templ,{'form':form})
 
 def crear_lista(request):
-    templ = 'crello/crear_Lista.html'
+    templ = 'crello/crear_Lista.html/'
     form =  ListaForm(request.POST or None)
     if form.is_valid():
         form.save()
@@ -43,7 +43,7 @@ def consultar_tab(request):
     contexto['objectlist']=listado_tablero
     return render(request,templ,contexto)
 
-def consultar_lista(request):
+def consultar_lista(request,id):
     templ = 'crello/tablero.html'
     listado_lista=Lista.objects.all()
     contexto={}
