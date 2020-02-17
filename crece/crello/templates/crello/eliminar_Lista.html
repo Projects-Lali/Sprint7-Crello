@@ -1,13 +1,13 @@
 {% extends 'crello/plantilla.html' %}
-{% block title %} CREAR TABLERO {% endblock %}
+{% block title %} EDITAR LISTA {% endblock %}
 {% block content %}
     <br>
     <div class="container d-flex justify-content-center">      
-      <form method="post">{% csrf_token %}
-
-        {{form.as_p}}
-        <input type="submit" value="enviar">
+      <form method="post">
+        {% csrf_token %}
+        <p>¿Desea eliminar este tablero?</p>
+        <input type="submit" value="eliminar">
         <a type="submit" href="{% url 'consultar_tab' %}">Cancelar</a>
       </form>
     </div>
-{% endblock content %}
+{% endblock content %}  
