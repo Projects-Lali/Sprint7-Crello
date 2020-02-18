@@ -13,7 +13,7 @@
             <div class="card-body text-center">
                 <a class="card-title text-uppercase text-center text-primary font-weight-bolder">{{lista.nombre}}</a>
                 <div>
-                    <a class="btn btn-warning" href=""><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
+                    <a class="btn btn-warning" href="{% url 'editar_lista' lista.id lista.fk_Tablero %}"><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
                     <a class="btn btn-danger" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </div>
             </div>

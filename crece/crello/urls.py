@@ -9,5 +9,6 @@ urlpatterns = [
     path('eliminarTablero/<int:id>', views.eliminar_tab, name='eliminar_tab'),
     path('tablero/<int:id>', views.consultar_lista, name='consultar_lista'),
     path('crearLista/<int:id>', views.crear_lista, name='crear_lista'),
+    path('editarLista/<int:id>/<int:fk>', views.editar_lista, name='editar_lista'),
 
 ]

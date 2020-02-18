@@ -7,7 +7,7 @@
         {% csrf_token %}
         {{form.as_p}}
         <input type="submit" value="Editar">
-        <a type="submit" href="{% url 'consultar_tab' %}">Cancelar</a>
+        <a type="submit" href="{% url 'consultar_tab' form.fk_Tablero %}">Cancelar</a>
       </form>
     </div>
 {% endblock content %}
