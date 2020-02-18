@@ -2,9 +2,13 @@
 <br>
 <div class="container d-flex justify-content-center">
     <form method="post">
-        {% csrf_token %} {{form.as_p}}
+        {% csrf_token %}
+        <label>Nombre</label>
+        <br>
+        {{form.nombre}}        
+        <br>
         <input type="submit" value="crear">
-        <a type="submit" href="{% url 'consultar_lista' tablero.id %}">Cancelar</a>
+        <a type="submit" href="{% url 'consultar_lista' info_Tablero.id %}">Cancelar</a>
     </form>
 </div>
 {% endblock content %}

@@ -13,12 +13,12 @@ class TableroForm(ModelForm):
 class ListaForm(ModelForm):
     class Meta:
         model = Lista
-        fields =['nombre','fk_Tablero']
+        fields =['nombre']
 
 class TarjetaForm(ModelForm):
     class Meta:
         model = Tarjeta
-        fields =['nombre','descripcion','fk_Lista']
+        fields =['nombre','descripcion']
 
 def crear_tab(request):
     templ = 'crello/crear_tablero.html'
@@ -28,13 +28,17 @@ def crear_tab(request):
         return redirect('consultar_tab')
     return render(request,templ,{'form':form})
 
-def crear_lista(request):
+def crear_lista(request,id):
     templ = 'crello/crear_Lista.html/'
     form =  ListaForm(request.POST or None)
-    if form.is_valid():
+    info_Tablero = get_object_or_404(Tablero, pk=id)
+    contexto={'form':form,'info_Tablero':info_Tablero}
+    fk_Tablero = form.cleaned_data(id)
+    if form.is_valid():      
+        print(form)
         form.save()
         #return redirect('consultar_')# tiene que dirigir a otro
-    return render(request,templ,{'form':form})
+    return render(request,templ,contexto)
 
 def consultar_tab(request):
     templ = 'crello/contenedorTablero.html'
@@ -46,8 +50,8 @@ def consultar_tab(request):
 def consultar_lista(request,id):
     templ = 'crello/tablero.html'
     listado_lista=Lista.objects.all()
-    contexto={}
-    contexto['objectlist']=listado_lista
+    info_Tablero = get_object_or_404(Tablero, pk=id)
+    contexto={'listado_lista':listado_lista,'info_Tablero':info_Tablero}    
     return render(request,templ,contexto)
 
 def editar_tab(request,id):

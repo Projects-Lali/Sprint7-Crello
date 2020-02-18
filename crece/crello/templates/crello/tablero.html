@@ -1,19 +1,20 @@
-{% extends 'crello/plantilla.html' %} {% block title %} {{tablero.nombre}} {% endblock %} {% block content %}
+{% extends 'crello/plantilla.html' %} {% block title %} {{info_Tablero.nombre}} {% endblock %} {% block content %}
 <br>
+<h1 class="text-center text-uppercase"> Tablero {{info_Tablero.nombre}}</h1>
 <div class="container d-flex justify-content-center">
-    <a class="btn btn-primary" href="{% url 'crear_lista' %}"> Crear Lista</a>
+    <a class="btn btn-primary" href="{% url 'crear_lista' info_Tablero.id %}"> Crear Lista</a>
 </div>
 <br>
-<div class="container-fluid d-flex justify-content-center">
-    {% if objectlist|length > 0 %}
+<div class="container-fluid d-flex justify-content-center">    
+    {% if listado_lista|length > 0 %}
     <div class="card-deck">
-        {% for lista in objectlist %}
+        {% for lista in listado_lista %}
         <div class="card border border-success">
             <div class="card-body text-center">
                 <a class="card-title text-uppercase text-center text-primary font-weight-bolder">{{lista.nombre}}</a>
                 <div>
-                    <a class="btn btn-warning" href="{% url 'editar_lista' lista.id %}"><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
-                    <a class="btn btn-danger" href="{% url 'eliminar_lista' lista.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <a class="btn btn-warning" href=""><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
+                    <a class="btn btn-danger" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
