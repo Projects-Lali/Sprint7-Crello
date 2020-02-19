@@ -1,13 +1,11 @@
-{% extends 'crello/plantilla.html' %}
-{% block title %} EDITAR LISTA {% endblock %}
-{% block content %}
-    <br>
-    <div class="container d-flex justify-content-center">      
-      <form method="post">
+{% extends 'crello/plantilla.html' %} {% block title %} {{info_Lista.nombre}} {% endblock %} {% block content %}
+<br>
+<div class="container d-flex justify-content-center">
+    <form method="post">
         {% csrf_token %}
-        <p>¿Desea eliminar este tablero?</p>
+        <p>¿Desea eliminar la Lista {{info_Lista.nombre}}?</p>
         <input type="submit" value="eliminar">
-        <a type="submit" href="{% url 'consultar_tab' %}">Cancelar</a>
-      </form>
-    </div>
-{% endblock content %}  
+        <a type="submit" href="{% url 'consultar_lista' fk_lista %}">Cancelar</a>
+    </form>
+</div>
+{% endblock content %}

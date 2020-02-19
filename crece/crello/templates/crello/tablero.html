@@ -5,7 +5,7 @@
     <a class="btn btn-primary" href="{% url 'crear_lista' info_Tablero.id %}"> Crear Lista</a>
 </div>
 <br>
-<div class="container-fluid d-flex justify-content-center">    
+<div class="container-fluid d-flex justify-content-center">
     {% if listado_lista|length > 0 %}
     <div class="card-deck">
         {% for lista in listado_lista %}
@@ -13,10 +13,16 @@
             <div class="card-body text-center">
                 <a class="card-title text-uppercase text-center text-primary font-weight-bolder">{{lista.nombre}}</a>
                 <div>
-                    <a class="btn btn-warning" href="{% url 'editar_lista' lista.id lista.fk_Tablero %}"><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
-                    <a class="btn btn-danger" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <a class="btn btn-warning" href="{% url 'editar_lista' lista.id %}"><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
+                    <a class="btn btn-danger" href="{% url 'eliminar_lista' lista.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </div>
             </div>
+            <a class="btn btn-primary" href="{% url 'crear_tarjeta' lista.id %}">Crear Tarjeta</a>
+            <!-- {% if lista.tareas.all|length > 0 %}
+            {% for tarjeta in lista.tareas.all %} 
+                {% endfor %}
+            {% endif %} -->
+
         </div>
         {% endfor %}
     </div>

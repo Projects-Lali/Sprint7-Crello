@@ -1,27 +1,22 @@
-{% extends 'crello/plantilla.html' %}
-{% block title %} TABLEROS {% endblock %}
-{% block content %}
-    <br>
-    <div class="container d-flex justify-content-center">
-        <a class="btn btn-primary" href="{% url 'crear_tab' %}"> Crear Tablero</a>
-    </div>
-    <br>   
-    <div class="container-fluid d-flex justify-content-center">           
-        {% if objectlist|length > 0 %}
-            <div class="card-deck">
-                {% for tablero in objectlist %}
-                    <div class="card border border-success">    
-                        <div class="card-body text-center">
-                            <a class="card-title text-uppercase text-center text-primary font-weight-bolder" href="{% url 'consultar_lista' tablero.id %}">{{tablero.nombre}}</a>
-                            <div>
-                                <a class="btn btn-warning" href="{% url 'editar_tab' tablero.id %}"><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
-                                <a class="btn btn-danger" href="{% url 'eliminar_tab' tablero.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>  
-                {% endfor %}
+{% extends 'crello/plantilla.html' %} {% block title %} TABLEROS {% endblock %} {% block content %}
+<br>
+<div class="container d-flex justify-content-center">
+    <a class="btn btn-primary" href="{% url 'crear_tab' %}"> Crear Tablero</a>
+</div>
+<br>
+<div class="container-fluid d-flex justify-content-center">
+    <div class="card-deck">
+        {% for tablero in objectlist %}
+        <div class="card border border-success">
+            <div class="card-body text-center">
+                <a class="card-title text-uppercase text-center text-primary font-weight-bolder" href="{% url 'consultar_lista' tablero.id %}">{{tablero.nombre}}</a>
+                <div>
+                    <a class="btn btn-warning" href="{% url 'editar_tab' tablero.id %}"><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
+                    <a class="btn btn-danger" href="{% url 'eliminar_tab' tablero.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                </div>
             </div>
-        {% endif %}        
+        </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock content %}
-
