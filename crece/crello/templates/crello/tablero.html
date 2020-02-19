@@ -6,7 +6,6 @@
 </div>
 <br>
 <div class="container-fluid d-flex justify-content-center">
-    {% if listado_lista|length > 0 %}
     <div class="card-deck">
         {% for lista in listado_lista %}
         <div class="card border border-success">
@@ -17,8 +16,7 @@
                     <a class="btn btn-danger" href="{% url 'eliminar_lista' lista.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a>
                 </div>
             </div>
-            <a class="btn btn-primary" href="{% url 'crear_tarjeta' lista.id %}">Crear Tarjeta</a>
-            <!-- {% if lista.tareas.all|length > 0 %}-->{% for tarjeta in lista.tareas.all %}
+            <a class="btn btn-primary" href="{% url 'crear_tarjeta' lista.id %}">Crear Tarjeta</a> {% for tarjeta in lista.tarjetas.all %}
             <div class="card-body text-center">
                 <a class="card-title text-uppercase text-center text-primary font-weight-bolder">{{tarjeta.nombre}}</a>
                 <p class="card-title text-uppercase text-center text-primary font-weight-bolder">{{tarjeta.descripcion}}</p>
@@ -28,10 +26,9 @@
                 </div>
             </div>
             {% endfor %}
-            <!-- {% endif %} -->
+
         </div>
         {% endfor %}
     </div>
-    {% endif %}
 </div>
 {% endblock content %}

@@ -63,6 +63,9 @@ def consultar_tab(request):
 def consultar_lista(request,id):
     templ = 'crello/tablero.html'
     listado_lista= Lista.objects.filter(fk_Tablero = id).prefetch_related('tarjetas')   
+    #listado_lista= Lista.objects.filter(fk_Tablero = id)
+    #listado_tarjeta= Tarjeta.objects.filter(fk_Lista__fk_Tablero=id)
+    
     info_Tablero = get_object_or_404(Tablero, pk=id)
     contexto={'listado_lista':listado_lista,'info_Tablero':info_Tablero}    
     return render(request,templ,contexto)
