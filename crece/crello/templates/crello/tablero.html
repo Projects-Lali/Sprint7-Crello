@@ -18,11 +18,17 @@
                 </div>
             </div>
             <a class="btn btn-primary" href="{% url 'crear_tarjeta' lista.id %}">Crear Tarjeta</a>
-            <!-- {% if lista.tareas.all|length > 0 %}
-            {% for tarjeta in lista.tareas.all %} 
-                {% endfor %}
-            {% endif %} -->
-
+            <!-- {% if lista.tareas.all|length > 0 %}-->{% for tarjeta in lista.tareas.all %}
+            <div class="card-body text-center">
+                <a class="card-title text-uppercase text-center text-primary font-weight-bolder">{{tarjeta.nombre}}</a>
+                <p class="card-title text-uppercase text-center text-primary font-weight-bolder">{{tarjeta.descripcion}}</p>
+                <div>
+                    <a class="btn btn-warning" href=""><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
+                    <a class="btn btn-danger" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- {% endif %} -->
         </div>
         {% endfor %}
     </div>
