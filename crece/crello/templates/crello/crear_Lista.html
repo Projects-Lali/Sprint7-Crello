@@ -1,19 +1,16 @@
-{% extends 'crello/plantilla.html' %}
-{% block title %} CREAR LISTA {% endblock %}
-{% load bootstrap4 %}
+{% extends 'crello/plantilla.html' %} 
+{% block title %} CREAR LISTA {% endblock %} 
+{% load bootstrap4 %} 
 {% block content %}
 <br>
+<h1 class="text-center">CREAR LISTA</h1>
 <div class="container d-flex justify-content-center border border-primary w-25" style="padding:5%">
     <div class="container">
-        <h1>CREAR LISTA</h1>
-    </div>
-    <div class="container">
         <form method="post">
-            {% csrf_token %}
-            {% bootstrap_form form %}
-            <input class="btn btn-primary" type="submit" value="crear">
+            {% csrf_token %} {% bootstrap_form form %}
+            <input class="btn btn-primary" type="submit" value="Crear">
             <a class="btn btn-danger" type="submit" href="{% url 'consultar_lista' info_Tablero.id %}">Cancelar</a>
-        </form>    
+        </form>
     </div>
 </div>
 {% endblock content %}
