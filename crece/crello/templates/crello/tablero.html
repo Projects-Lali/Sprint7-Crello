@@ -21,8 +21,8 @@
             <div class="card text-white bg-info border-secondary mb-3" style="max-width: 20rem;">
                 <div class="card-body">
                     <a class="card-title text-uppercase text-center font-weight-bolder text-white">Nombre: {{tarjeta.nombre}}</a>
-                    <h6 class="text-dark">DESCRIPCIÓN</h6>
-                    <p class="card-title text-uppercase font-weight-bolder text-white">{{tarjeta.descripcion}}</p>
+                    <h6 class="text-white" style="margin-top:4%">DESCRIPCIÓN:</h6>
+                    <p class="text-uppercase text-white">{{tarjeta.descripcion}}</p>
                     <div class="d-flex justify-content-center">
                         <a class="btn" style="margin-right: 2%; background-color:#030fab;" href="{% url 'editar_tarjeta' tarjeta.id %}"><i class=" fa fa-pencil text-white " aria-hidden="true "></i></a>
                         <a class="btn btn-danger " href="{% url 'eliminar_tarjeta' tarjeta.id %}"><i class="fa fa-trash " aria-hidden="true "></i></a>
