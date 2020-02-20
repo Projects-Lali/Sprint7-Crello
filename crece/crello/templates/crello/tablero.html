@@ -5,7 +5,7 @@
     <a class="btn btn-primary" href="{% url 'crear_lista' info_Tablero.id %}"> Crear Lista</a>
 </div>
 <br>
-<div class="container-fluid d-flex justify-content-center row row row-cols-4" style="margin-bottom: 8%;">
+<div class="container-fluid d-flex justify-content-center row row-cols-4" style="margin-bottom: 8%;">
     <div class="card-deck col-6 align-items-start">
         {% for lista in listado_lista %}
         <div class="card border border-success" style="max-width: 30rem;">

@@ -4,24 +4,23 @@
     <a class="btn btn-dark" href="{% url 'crear_tab' %}" style="margin-bottom:3%; background-color:#030fab;"> Crear Tablero</a>
 </div>
 <br>
-<div class="container-fluid d-flex justify-content-center">
-    {% if objectlist|length > 0 %}
-    <div class="card-deck">
+<div class="container-fluid d-flex justify-content-center row row-cols-4">
+    <div class="card-deck col-6">
         {% for tablero in objectlist %}
-        <div class="card bg-light mb-3">
-            <div class="border border-success" style="max-width: 30rem;">
+        <div class="card bg-light border-success col-6">
+            <div>
                 <div class="card-body text-center">
                     <a class="card-title text-uppercase text-center text-primary font-weight-bolder" style="color:#030fab;" href="{% url 'consultar_lista' tablero.id %}">{{tablero.nombre}}</a>
                 </div>
                 <br>
-                <div>
-                    <a class="btn btn-info" style="background-color:#030fab;" href="{% url 'editar_tab' tablero.id %}"><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-info" style="background-color:#030fab; margin-right: 2%;" href="{% url 'editar_tab' tablero.id %}"><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
                     <a class="btn btn-warning" href="{% url 'eliminar_tab' tablero.id %}"><i class="fa fa-trash text-white" aria-hidden="true"></i></a>
                 </div>
+                <br>
             </div>
         </div>
         {% endfor %}
     </div>
-    {% endif %}
 </div>
 {% endblock content %}
