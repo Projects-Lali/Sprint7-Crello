@@ -1,0 +1,13 @@
+{% extends 'crello/plantilla.html' %} 
+{% block title %} {{info_tarjeta.nombre}} {% endblock %} 
+{% block content %}
+<br>
+<div class="container d-flex justify-content-center">
+    <form method="post">
+        {% csrf_token %}
+        <p>¿Desea eliminar la Tarjeta {{info_tarjeta.nombre}}?</p>
+        <input type="submit" value="eliminar">
+        <a type="submit" href="{% url 'consultar_lista' fk_tablero %}">Cancelar</a>
+    </form>
+</div>
+{% endblock content %}

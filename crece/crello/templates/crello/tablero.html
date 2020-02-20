@@ -14,17 +14,18 @@
                 <div>
                     <a class="btn btn-warning" href="{% url 'editar_lista' lista.id %}"><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
                     <a class="btn btn-danger" href="{% url 'eliminar_lista' lista.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <a class="btn btn-primary" href="{% url 'crear_tarjeta' lista.id %}"><i class="fa fa-plus-circle" aria-hidden="true"></i></a> 
                 </div>
             </div>
-            <a class="btn btn-primary" href="{% url 'crear_tarjeta' lista.id %}">Crear Tarjeta</a> {% for tarjeta in lista.tarjetas.all %}
-            <div class="card-body text-center">
-                <a class="card-title text-uppercase text-center text-primary font-weight-bolder">{{tarjeta.nombre}}</a>
-                <p class="card-title text-uppercase text-center text-primary font-weight-bolder">{{tarjeta.descripcion}}</p>
-                <div>
-                    <a class="btn btn-warning" href=""><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
-                    <a class="btn btn-danger" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+            {% for tarjeta in lista.tarjetas.all %}
+                <div class="card-body text-center border border-primary">
+                    <a class="card-title text-uppercase text-center text-primary font-weight-bolder">{{tarjeta.nombre}}</a>
+                    <p class="card-title text-uppercase text-center text-primary font-weight-bolder">{{tarjeta.descripcion}}</p>
+                    <div>
+                        <a class="btn btn-warning" href="{% url 'editar_tarjeta' tarjeta.id %}"><i class=" fa fa-pencil text-white " aria-hidden="true "></i></a>
+                        <a class="btn btn-danger " href="{% url 'eliminar_tarjeta' tarjeta.id %}"><i class="fa fa-trash " aria-hidden="true "></i></a>
+                    </div>
                 </div>
-            </div>
             {% endfor %}
 
         </div>

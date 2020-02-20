@@ -82,12 +82,22 @@ def editar_tab(request,id):
 def editar_lista(request,id):
     template = 'crello/editar_Lista.html'    
     info_Lista = get_object_or_404(Lista, pk=id)
-    fk_lista=info_Lista.fk_Tablero.id
+    fk_tablero=info_Lista.fk_Tablero.id
     form = ListaForm(request.POST or None, instance=info_Lista)
     if form.is_valid():
         form.save()
-        return redirect('consultar_lista',fk_lista)
-    return render(request,template,{'form':form,'fk_lista':fk_lista})
+        return redirect('consultar_lista',fk_tablero)
+    return render(request,template,{'form':form,'fk_tablero':fk_tablero})
+
+def editar_tarjeta(request,id):
+    template = 'crello/editar_Tarjeta.html'    
+    info_Tarjeta = get_object_or_404(Tarjeta, pk=id)
+    fk_tablero = info_Tarjeta.fk_Lista.fk_Tablero.id
+    form = TarjetaForm(request.POST or None, instance=info_Tarjeta)    
+    if form.is_valid():
+        form.save()
+        return redirect('consultar_lista',fk_tablero)
+    return render(request,template,{'form':form,'fk_tablero':fk_tablero})
 
 def eliminar_tab(request,id):
     template = 'crello/eliminar_tablero.html'
@@ -105,3 +115,12 @@ def eliminar_lista(request,id):
         info_Lista.delete()
         return redirect('consultar_lista',fk_lista)
     return render(request,template,{'info_Lista':info_Lista,'fk_lista':fk_lista})
+
+def eliminar_tarjeta(request,id):
+    template = 'crello/eliminar_Tarjeta.html'    
+    info_tarjeta = get_object_or_404(Tarjeta, pk=id)
+    fk_tablero=info_tarjeta.fk_Lista.fk_Tablero.id
+    if request.method=='POST':
+        info_tarjeta.delete()
+        return redirect('consultar_lista',fk_tablero)
+    return render(request,template,{'info_tarjeta':info_tarjeta,'fk_tablero':fk_tablero})
