@@ -1,13 +1,17 @@
 {% extends 'crello/plantilla.html' %}
 {% block title %} CREAR TABLERO {% endblock %}
+{% load bootstrap4 %}
 {% block content %}
     <br>
-    <div class="container d-flex justify-content-center">      
-      <form method="post">{% csrf_token %}
-
-        {{form.as_p}}
-        <input type="submit" value="enviar">
-        <a type="submit" href="{% url 'consultar_tab' %}">Cancelar</a>
-      </form>
+    <h1 class="text-center">CREAR TABLERO</h1>
+<div class="container d-flex justify-content-center border border-primary w-25" style="padding:5%">
+    <div class="container">
+        <form method="post">{% csrf_token %}
+          {% bootstrap_form form %}
+          
+          <input class="btn btn-primary" type="submit" value="Enviar">
+          <a class="btn btn-danger" type="submit" href="{% url 'consultar_tab' %}">Cancelar</a>
+        </form>
+      </div>
     </div>
 {% endblock content %}

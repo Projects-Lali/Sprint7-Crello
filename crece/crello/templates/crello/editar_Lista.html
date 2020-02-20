@@ -1,10 +1,16 @@
-{% extends 'crello/plantilla.html' %} {% block title %} EDITAR LISTA {% endblock %} {% block content %}
+{% extends 'crello/plantilla.html' %} 
+{% block title %} EDITAR LISTA {% endblock %} 
+{% load bootstrap4 %} 
+{% block content %}
 <br>
-<div class="container d-flex justify-content-center">
-    <form method="post">
-        {% csrf_token %} {{form.as_p}}
-        <input type="submit" value="Editar">
-        <a type="submit" href="{% url 'consultar_lista' fk_tablero %}">Cancelar</a>
-    </form>
+<h1 class="text-center">EDITAR LISTA</h1>
+<div class="container d-flex justify-content-center border border-primary w-25" style="padding:5%">
+    <div class="container">
+        <form method="post">
+            {% csrf_token %} {% bootstrap_form form %}
+            <input class="btn btn-primary" type="submit" value="Editar">
+            <a class="btn btn-danger" type="submit" href="{% url 'consultar_lista' fk_tablero %}">Cancelar</a>
+        </form>
+    </div>
 </div>
 {% endblock content %}
