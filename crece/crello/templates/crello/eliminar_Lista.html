@@ -1,13 +1,15 @@
-{% extends 'crello/plantilla.html' %}
+{% extends 'crello/plantilla.html' %} 
 {% block title %} {{info_Lista.nombre}} {% endblock %} 
 {% block content %}
 <br>
 <div class="container d-flex justify-content-center">
     <form method="post">
         {% csrf_token %}
-        <p>¿Desea eliminar la Lista {{info_Lista.nombre}}?</p>
-        <input type="submit" value="eliminar">
-        <a type="submit" href="{% url 'consultar_lista' fk_lista %}">Cancelar</a>
+        <div class="container">
+            <p>¿Desea eliminar la Lista {{info_Lista.nombre}}?</p>
+            <input class="btn btn-danger" type="submit" value="eliminar">
+            <a class="btn btn-primary" href="{% url 'consultar_lista' fk_lista %}">Cancelar</a>
+        </div>
     </form>
 </div>
 {% endblock content %}
