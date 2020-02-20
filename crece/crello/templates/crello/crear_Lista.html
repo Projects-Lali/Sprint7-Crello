@@ -5,7 +5,7 @@
     <div class="container">
         <form method="post">
             {% csrf_token %} {% bootstrap_form form %}
-            <input class="btn btn-primary" type="submit" value="Crear" style="background-color:#030fab;">
+            <input class="btn" type="submit" value="Crear" style="background-color:#030fab;">
             <a class="btn btn-danger" type="submit" href="{% url 'consultar_lista' info_Tablero.id %}">Cancelar</a>
         </form>
     </div>
