@@ -18,15 +18,15 @@
 <body style="background-color: #efeeef;">
     <nav class="navbar d-flex justify-content-between" style="height:90px; background-color: #9f9f9f;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'index' %}"><i class="fas fa-reply-all fa-3x text-white"></i></a>
+            <a class="navbar-brand" href="{% url 'consultar_tab' %}"><i class="fas fa-reply-all fa-3x text-white"></i></a>
             <a href="{% url 'index' %}"><img src="{% static 'img/crello.png' %}" alt="My image" style="width: 125px; margin-left:30px;"></a>
-
+            <a class="navbar-brand" href="{% url 'crear_tab' %}"><i class="fas fa-plus-square fa-3x text-white"></i></a>
         </div>
 
     </nav>
 
     {% block content %} {% endblock %}
-    <footer class="page-footer d-flex justify-content-center fixed-bottom" style="height:60px; background-color: #07387d;">
+    <footer class="page-footer d-flex justify-content-center fixed-bottom" style="height:60px; background-color: #07387d; margin-top:15px;">
         <div class="text-center py-3">
             <p style="color:#cbcbcc;">. CURIOSIDAD . ENTUSIASMO . COLABORACION . RESPETO . EMPRENDIMIENTO .</p>
         </div>
