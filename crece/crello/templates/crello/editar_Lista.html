@@ -1,10 +1,7 @@
-{% extends 'crello/plantilla.html' %} 
-{% block title %} EDITAR LISTA {% endblock %} 
-{% load bootstrap4 %} 
-{% block content %}
+{% extends 'crello/plantilla.html' %} {% block title %} EDITAR LISTA {% endblock %} {% load bootstrap4 %} {% block content %}
 <br>
 <h1 class="text-center">EDITAR LISTA</h1>
-<div class="container d-flex justify-content-center border border-primary w-25" style="padding:5%">
+<div class="container d-flex justify-content-center border border-primary w-25 bg-white" style="padding:5%">
     <div class="container">
         <form method="post">
             {% csrf_token %} {% bootstrap_form form %}

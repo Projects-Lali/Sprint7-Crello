@@ -1,10 +1,7 @@
-{% extends 'crello/plantilla.html' %} 
-{% block title %} EDITAR TARJETA {% endblock %} 
-{% load bootstrap4 %} 
-{% block content %}
+{% extends 'crello/plantilla.html' %} {% block title %} EDITAR TARJETA {% endblock %} {% load bootstrap4 %} {% block content %}
 <br>
 <h1 class="text-center">EDITAR TARJETA</h1>
-<div class="container d-flex justify-content-center border border-primary w-50" style="padding:3%">
+<div class="container d-flex justify-content-center border border-primary bg-white w-50" style="padding:3%">
     <div class="container">
         <form method="post">
             {% csrf_token %} {% bootstrap_form form %}
@@ -12,7 +9,7 @@
                 <div class="container" style="margin-top:8%">
                     <input class="btn btn-primary" type="submit" value="Editar">
                     <a class="btn btn-danger" type="submit" href="{% url 'consultar_lista' fk_tablero %}">Cancelar</a>
-                </div>                
+                </div>
             </div>
         </form>
     </div>

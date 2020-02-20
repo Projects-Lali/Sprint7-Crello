@@ -23,8 +23,8 @@
                     <a class="card-title text-uppercase text-center font-weight-bolder text-white">Nombre: {{tarjeta.nombre}}</a>
                     <h6 class="text-dark">DESCRIPCIÓN</h6>
                     <p class="card-title text-uppercase font-weight-bolder text-white">{{tarjeta.descripcion}}</p>
-                    <div class="d-flex justify-content-around">
-                        <a class="btn btn-warning" href="{% url 'editar_tarjeta' tarjeta.id %}"><i class=" fa fa-pencil text-white " aria-hidden="true "></i></a>
+                    <div class="d-flex justify-content-center">
+                        <a class="btn btn-warning" style="margin-right: 2%;" href="{% url 'editar_tarjeta' tarjeta.id %}"><i class=" fa fa-pencil text-white " aria-hidden="true "></i></a>
                         <a class="btn btn-danger " href="{% url 'eliminar_tarjeta' tarjeta.id %}"><i class="fa fa-trash " aria-hidden="true "></i></a>
                     </div>
                 </div>
