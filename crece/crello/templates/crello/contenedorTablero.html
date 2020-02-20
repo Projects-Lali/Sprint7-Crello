@@ -8,15 +8,15 @@
     {% if objectlist|length > 0 %}
     <div class="card-deck">
         {% for tablero in objectlist %}
-        <div class="card bg-light mb-3">
-            <div class="card-body text-center ">
-                <div class="">
+        <div class="card bg-light mb-3 border border-success">
+            <div class=" ">
+                <div class="card-body text-center">
                     <a class="card-title text-uppercase text-center text-primary font-weight-bolder" style="color:#030fab;" href="{% url 'consultar_lista' tablero.id %}">{{tablero.nombre}}</a>
                 </div>
                 <br>
                 <div>
                     <a class="btn btn-info" style="background-color:#030fab;" href="{% url 'editar_tab' tablero.id %}"><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
-                    <a class="btn btn-warning" href="{% url 'eliminar_tab' tablero.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <a class="btn btn-warning" href="{% url 'eliminar_tab' tablero.id %}"><i class="fa fa-trash text-white" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
