@@ -2,11 +2,14 @@
 {% block title %} {{info_Lista.nombre}} {% endblock %} 
 {% block content %}
 <br>
+<h1 class="text-center">ELIMINAR LISTA</h1>
+<br>
 <div class="container d-flex justify-content-center">
     <form method="post">
         {% csrf_token %}
         <div class="container">
-            <p>¿Desea eliminar la Lista {{info_Lista.nombre}}?</p>
+            <h5>¿Desea eliminar la Lista {{info_Lista.nombre}}?</h5>
+            <br>
             <input class="btn btn-danger" type="submit" value="eliminar">
             <a class="btn btn-primary" href="{% url 'consultar_lista' fk_lista %}">Cancelar</a>
         </div>

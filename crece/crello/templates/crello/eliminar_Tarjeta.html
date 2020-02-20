@@ -2,12 +2,17 @@
 {% block title %} {{info_tarjeta.nombre}} {% endblock %} 
 {% block content %}
 <br>
+<h1 class="text-center">ELIMINAR TABLERO</h1>
+<br>
 <div class="container d-flex justify-content-center">
     <form method="post">
         {% csrf_token %}
-        <p>¿Desea eliminar la Tarjeta {{info_tarjeta.nombre}}?</p>
-        <input type="submit" value="eliminar">
-        <a type="submit" href="{% url 'consultar_lista' fk_tablero %}">Cancelar</a>
+        <div class="container">
+            <h5>¿Desea eliminar la Tarjeta {{info_tarjeta.nombre}}?</h5>
+            <br>
+            <input class="btn btn-danger" type="submit" value="eliminar">
+            <a class="btn btn-primary" type="submit" href="{% url 'consultar_lista' fk_tablero %}">Cancelar</a>
+        </div>
     </form>
 </div>
 {% endblock content %}
