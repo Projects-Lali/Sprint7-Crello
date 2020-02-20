@@ -2,7 +2,7 @@
 <br>
 <h1 class="text-center text-uppercase"> Tablero {{info_Tablero.nombre}}</h1>
 <div class="container d-flex justify-content-center">
-    <a class="btn btn-primary" href="{% url 'crear_lista' info_Tablero.id %}"> Crear Lista</a>
+    <a class="btn" href="{% url 'crear_lista' info_Tablero.id %}" style="background-color:#030fab;"> Crear Lista</a>
 </div>
 <br>
 <div class="container-fluid d-flex justify-content-center row row-cols-4" style="margin-bottom: 8%;">
@@ -12,7 +12,7 @@
             <div class="card-body text-center">
                 <h5 class="card-title text-uppercase text-center text-primary font-weight-bolder">{{lista.nombre}}</h5>
                 <div>
-                    <a class="btn btn-warning" href="{% url 'editar_lista' lista.id %}"><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
+                    <a class="btn " href="{% url 'editar_lista' lista.id %}" style="background-color:#030fab;"><i class="fa fa-pencil text-white" aria-hidden="true"></i></a>
                     <a class="btn btn-danger" href="{% url 'eliminar_lista' lista.id %}"><i class="fa fa-trash" aria-hidden="true"></i></a>
                     <a class="btn btn-primary" href="{% url 'crear_tarjeta' lista.id %}"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
                 </div>
@@ -24,7 +24,7 @@
                     <h6 class="text-dark">DESCRIPCIÓN</h6>
                     <p class="card-title text-uppercase font-weight-bolder text-white">{{tarjeta.descripcion}}</p>
                     <div class="d-flex justify-content-center">
-                        <a class="btn btn-warning" style="margin-right: 2%;" href="{% url 'editar_tarjeta' tarjeta.id %}"><i class=" fa fa-pencil text-white " aria-hidden="true "></i></a>
+                        <a class="btn" style="margin-right: 2%; background-color:#030fab;" href="{% url 'editar_tarjeta' tarjeta.id %}"><i class=" fa fa-pencil text-white " aria-hidden="true "></i></a>
                         <a class="btn btn-danger " href="{% url 'eliminar_tarjeta' tarjeta.id %}"><i class="fa fa-trash " aria-hidden="true "></i></a>
                     </div>
                 </div>
